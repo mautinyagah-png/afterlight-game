@@ -1,1 +1,217 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070914">
+  <meta name="description" content="AFTERLIGHT: The Last Courier — a free neon arcade runner. No sign-up, no downloads, just play.">
+  <title>AFTERLIGHT — The Last Courier</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/game.css">
+  <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar" id="topbar">
+      <a class="brand" href="#home" aria-label="Afterlight home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>AFTERLIGHT</strong><small>THE LAST COURIER</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" data-home-link>HOME</a>
+        <a href="#how-to-play" class="nav-link" data-how-link>HOW TO PLAY</a>
+        <a href="#power-ups" class="nav-link" data-power-link>POWER-UPS</a>
+        <a href="#missions" class="nav-link" data-missions-link>MISSIONS</a>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-button sound-toggle" id="soundToggle" type="button" aria-label="Toggle sound" title="Toggle sound"><span class="sound-icon">♫</span><span class="sound-label">SOUND ON</span></button>
+        <button class="button button-small button-primary" id="headerPlay" type="button">PLAY NOW <span aria-hidden="true">↗</span></button>
+        <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu" hidden>
+        <a href="#home" data-home-link>Home</a>
+        <a href="#how-to-play" data-how-link>How to play</a>
+        <a href="#power-ups" data-power-link>Power-ups</a>
+        <a href="#missions" data-missions-link>Missions</a>
+        <button class="button button-primary" id="mobilePlay" type="button">Start running ↗</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="home-screen" id="homeScreen">
+        <section class="hero section-wrap" id="home">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="live-dot"></span> NOVA-9 <span class="eyebrow-divider">/</span> EMERGENCY TRANSMISSION</div>
+            <h1>THE CITY<br>WENT <span class="gradient-word">DARK.</span></h1>
+            <p class="hero-kicker">RUN TOWARD THE LIGHT.</p>
+            <p class="hero-description">Race through the neon ruins of NOVA-9. Dodge hostile machines, collect energy cores, and bring the last light back to the city.</p>
+            <div class="hero-actions">
+              <button class="button button-primary button-large" id="heroPlay" type="button"><span class="button-play-icon">▶</span> START RUNNING</button>
+              <button class="button button-ghost button-large" id="heroHow" type="button"><span class="play-outline">▷</span> HOW TO PLAY</button>
+            </div>
+            <div class="hero-footnote"><span>✦</span> NO SIGN-UP <i></i> FREE TO PLAY <i></i> INSTANT ARCADE ACTION</div>
+          </div>
+          <div class="hero-art" aria-label="Illustration of a neon futuristic city and courier">
+            <div class="hero-art-grid"></div>
+            <div class="hero-sun"></div>
+            <div class="hero-city city-back" aria-hidden="true"></div>
+            <div class="hero-city city-front" aria-hidden="true"></div>
+            <div class="hero-road" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="hero-sign sign-one">NOVA // 09</div>
+            <div class="hero-sign sign-two">KEEP MOVING</div>
+            <div class="hero-crystal crystal-one" aria-hidden="true"></div>
+            <div class="hero-crystal crystal-two" aria-hidden="true"></div>
+            <div class="hero-crystal crystal-three" aria-hidden="true"></div>
+            <div class="hero-courier" aria-hidden="true">
+              <div class="courier-trail"></div>
+              <div class="courier-board"></div>
+              <div class="courier-leg leg-one"></div><div class="courier-leg leg-two"></div>
+              <div class="courier-body"></div><div class="courier-arm arm-one"></div><div class="courier-arm arm-two"></div>
+              <div class="courier-head"><span></span></div>
+              <div class="courier-backpack"></div>
+            </div>
+            <div class="hero-art-caption"><span class="caption-line"></span><span>LAST KNOWN LOCATION</span><strong>SECTOR 07 — NOVA-9</strong></div>
+            <div class="hero-art-index">01 <span>/</span> 04</div>
+          </div>
+          <div class="hero-bottom-glow"></div>
+        </section>
+
+        <section class="session-strip section-wrap" aria-label="Your visit statistics">
+          <div class="strip-intro"><span class="strip-icon">✦</span><div><strong>YOUR RUN RECORD</strong><small>THIS VISIT ONLY</small></div></div>
+          <div class="strip-stat"><strong id="homeBest">0</strong><small>BEST SCORE</small></div>
+          <div class="strip-stat"><strong id="homeDistance">0<span>m</span></strong><small>LONGEST DISTANCE</small></div>
+          <div class="strip-stat"><strong id="homeEnergy">0</strong><small>ENERGY CORES</small></div>
+          <div class="strip-stat"><strong id="homeRuns">0</strong><small>TOTAL RUNS</small></div>
+        </section>
+
+        <section class="intro-section section-wrap" id="missions">
+          <div class="section-heading"><div><span class="section-kicker">THE CITY IS YOURS</span><h2>ONE RUN. <span>NO LIMITS.</span></h2></div><p>Every second counts. Every lane hides a choice. How far can you make it through the dark?</p></div>
+          <div class="feature-grid">
+            <article class="feature-card"><div class="feature-icon icon-survive"><span>⌁</span></div><span class="feature-number">01 / SURVIVE</span><h3>Stay in the light.</h3><p>React fast as the city gets quicker, darker, and more dangerous with every district.</p><div class="feature-card-line"></div></article>
+            <article class="feature-card"><div class="feature-icon icon-collect"><span>◇</span></div><span class="feature-number">02 / COLLECT</span><h3>Take the energy.</h3><p>Grab glowing cores, chain clean moves, and build a score worth remembering.</p><div class="feature-card-line"></div></article>
+            <article class="feature-card"><div class="feature-icon icon-master"><span>↗</span></div><span class="feature-number">03 / MASTER</span><h3>Own the night.</h3><p>Complete quick missions, activate power-ups, and push your personal best.</p><div class="feature-card-line"></div></article>
+          </div>
+        </section>
+
+        <section class="how-section" id="how-to-play">
+          <div class="section-wrap how-inner">
+            <div class="how-visual">
+              <div class="mini-game-frame">
+                <div class="mini-game-sky"><span class="mini-sun"></span><span class="mini-building b-a"></span><span class="mini-building b-b"></span><span class="mini-building b-c"></span></div>
+                <div class="mini-road"><span></span><span></span><span></span><div class="mini-player"><i></i><b></b></div><div class="mini-barrier"></div><div class="mini-crystal"></div></div>
+                <div class="mini-hud"><span>SCORE <b>02480</b></span><span>ENERGY <b>12</b></span></div>
+              </div>
+              <div class="how-sticker">3 LANES<br><strong>ONE CHANCE</strong></div>
+            </div>
+            <div class="how-copy">
+              <span class="section-kicker">GET THE BASICS</span><h2>READ THE ROAD.<br><span>OWN THE RUN.</span></h2>
+              <p>Three lanes. Four moves. No time to hesitate. Use your keyboard on desktop or swipe on your phone.</p>
+              <div class="control-list desktop-controls">
+                <div class="control-row"><span class="keycap">←</span><span class="keycap">A</span><div><strong>MOVE LEFT</strong><small>Switch to the left lane</small></div></div>
+                <div class="control-row"><span class="keycap">→</span><span class="keycap">D</span><div><strong>MOVE RIGHT</strong><small>Switch to the right lane</small></div></div>
+                <div class="control-row"><span class="keycap">SPACE</span><span class="keycap">↑</span><div><strong>JUMP</strong><small>Clear road barriers</small></div></div>
+                <div class="control-row"><span class="keycap">↓</span><span class="keycap">S</span><div><strong>SLIDE</strong><small>Duck under laser gates</small></div></div>
+              </div>
+              <div class="mobile-controls-hint"><span class="swipe-icon">↔</span><div><strong>ON YOUR PHONE?</strong><small>Swipe left or right to change lanes. Swipe up to jump and down to slide. On-screen buttons are also available.</small></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="power-section section-wrap" id="power-ups">
+          <div class="section-heading"><div><span class="section-kicker">PICK YOUR ADVANTAGE</span><h2>TOOLS OF THE <span>TRADE.</span></h2></div><p>Four rare technologies. One courier. Use each boost at the right moment.</p></div>
+          <div class="power-grid">
+            <article class="power-card"><div class="power-symbol shield-symbol">⬡</div><div><span>DEFENCE / 01</span><h3>ENERGY SHIELD</h3><p>Absorbs one collision and keeps your run alive.</p></div><b class="power-duration">1 HIT</b></article>
+            <article class="power-card"><div class="power-symbol magnet-symbol">⌁</div><div><span>COLLECTION / 02</span><h3>CORE MAGNET</h3><p>Pulls nearby energy cores toward your board.</p></div><b class="power-duration">7 SEC</b></article>
+            <article class="power-card"><div class="power-symbol overdrive-symbol">ϟ</div><div><span>BOOST / 03</span><h3>OVERDRIVE</h3><p>Temporarily doubles your score multiplier.</p></div><b class="power-duration">6 SEC</b></article>
+            <article class="power-card"><div class="power-symbol phase-symbol">◇</div><div><span>ESCAPE / 04</span><h3>PHASE MODE</h3><p>Slip through ordinary obstacles for a brief window.</p></div><b class="power-duration">3.5 SEC</b></article>
+          </div>
+        </section>
+
+        <section class="final-cta section-wrap">
+          <div class="cta-orb orb-left"></div><div class="cta-orb orb-right"></div>
+          <span class="section-kicker">NOVA-9 IS WAITING</span><h2>READY TO LIGHT<br><span>UP THE CITY?</span></h2>
+          <p>The streets won't wait. Your next run starts now.</p>
+          <button class="button button-primary button-large" id="footerPlay" type="button">ENTER THE CITY <span>↗</span></button>
+          <div class="cta-coordinates">35° 41' 22.8" N <i></i> SECTOR 07 <i></i> SIGNAL ACTIVE</div>
+        </section>
+      </section>
+
+      <section class="game-screen" id="gameScreen" hidden>
+        <div class="game-topline">
+          <button class="game-brand" id="gameHome" type="button"><span class="mini-brand-mark">✦</span><span>AFTERLIGHT <small>RUN SESSION</small></span></button>
+          <div class="game-mode-label" id="gameModeLabel">ENDLESS RUN <span>•</span> NOVA-9</div>
+          <button class="pause-button" id="pauseButton" type="button" aria-label="Pause game"><span></span><span></span><b>PAUSE</b></button>
+        </div>
+        <div class="game-layout">
+          <div class="game-stage" id="gameStage">
+            <canvas id="gameCanvas" aria-label="Afterlight game. Use arrow keys or swipe to move, jump, and slide."></canvas>
+            <div class="game-hud">
+              <div class="hud-score"><small>SCORE</small><strong id="hudScore">000000</strong><span id="hudCombo">COMBO x1</span></div>
+              <div class="hud-center"><div class="hud-distance"><small>DISTANCE</small><strong id="hudDistance">0 <i>m</i></strong></div><div class="district-pill" id="hudDistrict">CITY ENTRY</div></div>
+              <div class="hud-right"><div class="hud-energy"><small>ENERGY</small><strong><span class="energy-gem">◇</span><span id="hudEnergy">0</span></strong></div><div class="hud-health" id="hudHealth" aria-label="3 health points"><i></i><i></i><i></i></div></div>
+            </div>
+            <div class="mission-chip" id="missionChip"><span class="mission-chip-icon">✦</span><div><small>ACTIVE MISSION</small><strong id="missionText">Collect 12 energy cores</strong></div><span class="mission-progress" id="missionProgress">0/12</span></div>
+            <div class="power-status" id="powerStatus" hidden></div>
+            <div class="game-toast" id="gameToast" aria-live="polite"></div>
+            <div class="countdown-cover" id="countdownCover" hidden><strong id="countdownNumber">3</strong><small>GET READY</small></div>
+            <div class="game-overlay" id="pauseOverlay" hidden>
+              <div class="overlay-panel pause-panel"><span class="overlay-eyebrow">NOVA-9 // TRANSMISSION PAUSED</span><h2>TAKE A<br><span>BREATHER.</span></h2><p>The city can wait a second.</p><button class="button button-primary button-large full-button" id="resumeButton" type="button">RESUME RUN <span>▶</span></button><button class="button button-outline full-button" id="restartButton" type="button">RESTART RUN</button><button class="text-button" id="pauseHomeButton" type="button">RETURN TO HOME</button></div>
+            </div>
+            <div class="game-overlay" id="resultOverlay" hidden>
+              <div class="overlay-panel result-panel"><span class="overlay-eyebrow" id="resultEyebrow">RUN COMPLETE // SIGNAL RECEIVED</span><h2 id="resultTitle">NICE<br><span>RUN.</span></h2><p id="resultMessage">The city remembers your run.</p>
+                <div class="result-score-block"><small>FINAL SCORE</small><strong id="resultScore">0</strong><span id="resultRank">ROOKIE COURIER</span></div>
+                <div class="result-stats"><div><small>DISTANCE</small><strong id="resultDistance">0m</strong></div><div><small>ENERGY</small><strong id="resultEnergy">0</strong></div><div><small>AVOIDED</small><strong id="resultAvoided">0</strong></div><div><small>MISSIONS</small><strong id="resultMissions">0/3</strong></div></div>
+                <div class="result-visit-best"><small>BEST SCORE THIS VISIT</small><strong id="resultBestVisit">0</strong></div>
+                <div class="result-achievements" id="resultAchievements"></div>
+                <button class="button button-primary button-large full-button" id="playAgainButton" type="button">PLAY AGAIN <span>↗</span></button><button class="button button-outline full-button" id="changeModeButton" type="button">CHANGE MODE</button><button class="text-button" id="resultHomeButton" type="button">BACK TO HOME</button>
+              </div>
+            </div>
+            <div class="touch-controls" id="touchControls" aria-label="Touch controls">
+              <div class="touch-direction-group"><button type="button" data-action="left" aria-label="Move left">←</button><button type="button" data-action="right" aria-label="Move right">→</button></div>
+              <div class="touch-action-group"><button type="button" data-action="slide" aria-label="Slide">SLIDE</button><button type="button" data-action="jump" aria-label="Jump">JUMP <span>↑</span></button></div>
+            </div>
+          </div>
+          <aside class="game-side-panel">
+            <div class="side-panel-top"><span class="section-kicker">RUN INTEL</span><span class="signal-status"><i></i> LIVE</span></div>
+            <div class="side-stat"><small>RUN SPEED</small><strong id="sideSpeed">1.0<span>x</span></strong><div class="speed-track"><i id="speedBar"></i></div></div>
+            <div class="side-stat"><small>POWER-UP</small><strong class="side-power-name" id="sidePower">NONE</strong><span class="side-muted" id="sidePowerHint">Find a glowing tech core</span></div>
+            <div class="side-divider"></div>
+            <div class="side-missions-title"><span>MISSION LOG</span><small>THIS RUN</small></div>
+            <div class="side-mission-list" id="sideMissionList"></div>
+            <div class="side-tip"><span>FIELD NOTE</span><p id="fieldTip">Stay flexible. The safest lane can change in a heartbeat.</p></div>
+            <div class="side-controls-note"><span>⌨</span><div><strong>QUICK PAUSE</strong><small>Press P or ESC</small></div></div>
+          </aside>
+        </div>
+        <div class="game-footer"><span>AFTERLIGHT <i>—</i> THE LAST COURIER</span><span>ALL DATA IS TEMPORARY <i>•</i> REFRESH TO RESET</span></div>
+      </section>
+    </main>
+    <footer class="site-footer" id="siteFooter"><div class="footer-brand"><span class="mini-brand-mark">✦</span><strong>AFTERLIGHT</strong></div><p>An independent browser arcade experience. No accounts. No downloads. Just play.</p><span>© 2026 AFTERLIGHT — BUILT FOR THE NIGHT SHIFT.</span></footer>
+  </div>
+
+  <div class="modal-backdrop" id="modeModal" hidden>
+    <section class="mode-dialog" role="dialog" aria-modal="true" aria-labelledby="modeTitle">
+      <button class="modal-close" id="closeModeModal" type="button" aria-label="Close">×</button>
+      <span class="section-kicker">CHOOSE YOUR CHALLENGE</span><h2 id="modeTitle">HOW WILL YOU<br><span>RUN TONIGHT?</span></h2>
+      <div class="mode-options">
+        <button class="mode-option selected" data-mode="endless" type="button"><span class="mode-option-icon">∞</span><span class="mode-option-copy"><strong>ENDLESS RUN</strong><small>No finish line. Survive for as long as you can.</small></span><span class="mode-option-arrow">↗</span></button>
+        <button class="mode-option" data-mode="time" type="button"><span class="mode-option-icon time-icon">◷</span><span class="mode-option-copy"><strong>TIME ATTACK</strong><small>60 seconds. Maximum score. No second chances.</small></span><span class="mode-option-arrow">↗</span></button>
+      </div>
+      <div class="mode-dialog-bottom"><span><i class="live-dot"></i> READY WHEN YOU ARE</span><button class="button button-primary button-large" id="confirmModeButton" type="button">ENTER THE CITY <span>↗</span></button></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="howModal" hidden>
+    <section class="how-dialog" role="dialog" aria-modal="true" aria-labelledby="howModalTitle">
+      <button class="modal-close" id="closeHowModal" type="button" aria-label="Close">×</button>
+      <span class="section-kicker">COURIER FIELD GUIDE</span><h2 id="howModalTitle">FOUR MOVES.<br><span>ONE SURVIVOR.</span></h2>
+      <div class="guide-grid"><div><b>← →</b><strong>CHANGE LANES</strong><small>Move between the three lanes to avoid danger.</small></div><div><b>SPACE / ↑</b><strong>JUMP</strong><small>Clear the low road barriers.</small></div><div><b>↓ / S</b><strong>SLIDE</strong><small>Duck underneath the overhead laser gates.</small></div><div><b>P / ESC</b><strong>PAUSE</strong><small>Take a breather without losing your run.</small></div></div>
+      <div class="guide-mobile"><strong>ON TOUCHSCREENS</strong><p>Swipe left/right to change lanes, swipe up to jump, and swipe down to slide. On-screen buttons appear during the run.</p></div>
+      <button class="button button-primary button-large full-button" id="guidePlayButton" type="button">GOT IT — LET'S RUN <span>↗</span></button>
+    </section>
+  </div>
+  <div class="global-toast" id="globalToast" aria-live="polite"></div>
+</body>
+</html>
+
